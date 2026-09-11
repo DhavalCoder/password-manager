@@ -24,11 +24,34 @@ def get_db():
     finally:
         db.close()
 
-# Import all models so their tables are registered with Base.metadata,
-# then create any missing tables (including the new credential_history table).
 def init_db():
-    from app.models.models import (  # noqa: F401
+    from app.models.models import (
         Role, User, Client, Category, Credential,
         SharedAccess, ActivityLog, CredentialHistory
     )
+    from app.core.security import get_password_hash
     Base.metadata.create_all(bind=engine)
+    
+    # Seed default admin if it doesn't exist
+    db = SessionLocal()
+    try:
+        admin_role = db.query(Role).filter(Role.name == "admin").first()
+        if not admin_role:
+            admin_role = Role(name="admin", permissions={"all": True})
+            db.add(admin_role)
+            db.commit()
+            db.refresh(admin_role)
+            
+        admin_user = db.query(User).filter(User.email == os.getenv("ADMIN_EMAIL", "admin@passwordmanager.com")).first()
+        if not admin_user:
+            admin_user = User(
+                email=os.getenv("ADMIN_EMAIL", "admin@passwordmanager.com"),
+                hashed_password=get_password_hash(os.getenv("ADMIN_PASSWORD", "Admin@123!")),
+                role_id=admin_role.id,
+                name="System Admin",
+                is_active=True
+            )
+            db.add(admin_user)
+            db.commit()
+    finally:
+        db.close()
