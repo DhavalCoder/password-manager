@@ -211,7 +211,7 @@ export default function Dashboard() {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="w-full max-w-2xl bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/10 p-8 relative max-h-[90vh] overflow-y-auto">
               <button onClick={() => { setOpenAdd(false); setEditingCred(null); }} className="absolute top-6 right-6 text-white/40 hover:text-white cursor-pointer bg-transparent border-none"><X size={20} /></button>
               <h2 className="font-serif text-2xl border-b border-white/10 pb-4 mb-6">{editingCred ? "Edit Record" : "Initialize Entity"}</h2>
-              <CredentialForm initialData={editingCred} onSuccess={() => { setOpenAdd(false); setEditingCred(null); loadData(); }} onCancel={() => { setOpenAdd(false); setEditingCred(null); }} />
+              <CredentialForm credential={editingCred} onSuccess={() => { setOpenAdd(false); setEditingCred(null); loadData(); }} />
             </motion.div>
           </div>
         )}
@@ -240,7 +240,7 @@ export default function Dashboard() {
                 </div>
               )}
               <span className="text-white/40 text-[10px] uppercase tracking-widest font-display block mb-4">Grant New Access</span>
-              <ShareCredentialForm credentialId={shareCredId} onSuccess={() => { openShareModal(shareCredId); toast.success("Access granted"); }} onCancel={() => { setShareCredId(null); setSharesList([]); }} />
+              <ShareCredentialForm credentialId={shareCredId} onSuccess={() => { openShareModal(shareCredId); toast.success("Access granted"); }} />
             </motion.div>
           </div>
         )}
