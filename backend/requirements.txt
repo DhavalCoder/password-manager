@@ -10,3 +10,4 @@ pydantic
 pydantic-settings
 psycopg2-binary
 email-validator==2.1.1
+python-multipart
