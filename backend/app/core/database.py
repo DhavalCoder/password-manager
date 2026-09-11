@@ -46,7 +46,7 @@ def init_db():
         if not admin_user:
             admin_user = User(
                 email=os.getenv("ADMIN_EMAIL", "admin@passwordmanager.com"),
-                hashed_password=get_password_hash(os.getenv("ADMIN_PASSWORD", "Admin@123!")),
+                password_hash=get_password_hash(os.getenv("ADMIN_PASSWORD", "Admin@123!")),
                 role_id=admin_role.id,
                 name="System Admin",
                 is_active=True
