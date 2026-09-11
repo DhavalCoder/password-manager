@@ -114,7 +114,7 @@ export function CredentialForm({ onSuccess, credential }: { onSuccess: () => voi
           </div>
           <div className="relative">
             <label className={labelClass}>Passphrase</label>
-            <input required type={showPassword ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)} className={inputClass} placeholder="••••••••" />
+            <input required type={showPassword ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)} className={inputClass} placeholder="********" />
             <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-0 bottom-3 text-white/40 hover:text-white transition-colors bg-transparent border-none cursor-pointer">
               {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
             </button>
@@ -133,7 +133,7 @@ export function CredentialForm({ onSuccess, credential }: { onSuccess: () => voi
           </div>
           <div className="relative">
             <label className={labelClass}>Secret Key / Access Token</label>
-            <input required type={showPassword ? 'text' : 'password'} value={secretKey} onChange={e => setSecretKey(e.target.value)} className={inputClass} placeholder="••••••••" />
+            <input required type={showPassword ? 'text' : 'password'} value={secretKey} onChange={e => setSecretKey(e.target.value)} className={inputClass} placeholder="********" />
             <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-0 bottom-3 text-white/40 hover:text-white transition-colors bg-transparent border-none cursor-pointer">
               {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
             </button>
