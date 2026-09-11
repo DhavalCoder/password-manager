@@ -22,7 +22,7 @@ import os
 frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origin_regex="https://.*\.vercel\.app|http://localhost:.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
