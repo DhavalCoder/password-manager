@@ -6,8 +6,8 @@ import { Lock } from 'lucide-react';
 import { Navigate } from 'react-router-dom';
 
 export default function Login() {
-  const [email, setEmail] = useState('admin@passwordmanager.com');
-  const [password, setPassword] = useState('Admin@123!');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login, isAuthenticated } = useAuth();
