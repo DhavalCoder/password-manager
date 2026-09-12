@@ -14,11 +14,13 @@ export default function Logs() {
 
   return (
     <div className="w-full">
-      <div className="mb-12 border-b border-white/10 pb-6 flex items-center gap-4">
-        <Activity size={32} className="text-white/50" />
-        <div>
-          <span className="text-white/50 tracking-[0.2em] text-[10px] uppercase font-display block">System Intelligence</span>
-          <h2 className="text-4xl font-serif">Activity Logs</h2>
+      <div className="mb-12 border-b border-white/10">
+        <div className="flex items-center gap-4">
+          <Activity size={32} className="text-white/50" />
+          <div>
+            <span className="text-white/50 tracking-[0.2em] text-[10px] uppercase font-display block">System Logs</span>
+            <h2 className="text-4xl font-serif">Activity Logs</h2>
+          </div>
         </div>
       </div>
 

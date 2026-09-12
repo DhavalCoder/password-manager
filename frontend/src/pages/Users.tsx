@@ -109,7 +109,7 @@ export default function Users() {
         <div className="flex items-center gap-4">
           <UsersIcon size={32} className="text-white/50" />
           <div>
-            <span className="text-white/50 tracking-[0.2em] text-[10px] uppercase font-display block">Network Operatives</span>
+            <span className="text-white/50 tracking-[0.2em] text-[10px] uppercase font-display block">Team Management</span>
             <h2 className="text-4xl font-serif">System Users</h2>
           </div>
         </div>

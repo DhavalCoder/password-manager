@@ -8,10 +8,10 @@ export function Layout() {
 
   const navItems = [
     { path: '/', label: 'Vault', icon: Key, roles: ['admin', 'team_member', 'client'] },
-    { path: '/categories', label: 'Taxonomies', icon: Folder, roles: ['admin', 'team_member'] },
+    { path: '/categories', label: 'Categories', icon: Folder, roles: ['admin', 'team_member'] },
     { path: '/clients', label: 'Clients', icon: Briefcase, roles: ['admin', 'team_member'] },
-    { path: '/users', label: 'Network Users', icon: Users, roles: ['admin'] },
-    { path: '/logs', label: 'Intelligence', icon: Activity, roles: ['admin'] },
+    { path: '/users', label: 'Users', icon: Users, roles: ['admin'] },
+    { path: '/logs', label: 'Activity Logs', icon: Activity, roles: ['admin'] },
   ].filter(item => !user || item.roles.includes(user.role_name));
 
   return (
